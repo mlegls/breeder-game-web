@@ -85,10 +85,8 @@ export async function loader({ params }: LoaderFunctionArgs) {
   const f0 = p0Ready && p0Ready.map(($) => t0[$]);
   const f1 = p1Ready && p1Ready.map(($) => t1[$]);
 
-  // skip calculation if battle has already been calculated;
-
+  // calculate battle if both players are ready;
   if (f0 && f1) {
-    // calculate battle
     const [b_log, winner] = battle(f0, f1);
     const dead = ($: number) =>
       _.difference(
@@ -110,6 +108,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
     });
     return json({ waiting: false, log: b_log, winner, round: roundN });
   } else {
+    // get last calculated battle
     const b_log = _.last(log.filter(($) => $.tag == "battle")) as
       | IBattleLog
       | undefined;
@@ -121,6 +120,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
         round: parseInt(b_log.round),
       });
     }
+    // not available means we're on the 1st round
     return json({
       waiting: true,
       log: [[f0, f1]],
