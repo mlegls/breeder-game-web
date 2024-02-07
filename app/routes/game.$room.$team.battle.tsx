@@ -12,7 +12,6 @@ import { IBattleLog, IGameData } from "./_index";
 
 export default function Battle() {
   const navigate = useNavigate();
-  const { team } = useParams();
   const { waiting, log, winner, round } = useLoaderData<typeof loader>();
   const [turn, setTurn] = useState(0);
 
@@ -73,9 +72,8 @@ export default function Battle() {
 }
 
 export async function loader({ params }: LoaderFunctionArgs) {
-  const { room, team } = params;
+  const { room } = params;
   invariant(typeof room == "string", "room is required");
-  invariant(typeof team == "string", "team is required");
 
   const data: IGameData | null = (await redis.hgetall(
     room
