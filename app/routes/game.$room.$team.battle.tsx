@@ -19,7 +19,10 @@ export default function Battle() {
   return (
     <div className="font-sans">
       <h1>{`Battle (Round ${round})`}</h1>
-      <p>View the battle, and breed again when you're ready.</p>
+      <p>
+        View the battle, and breed again when you're ready. If you're seeing the
+        previous round, your opponent isn't ready yet.
+      </p>
       <p>
         {winner && turn == log.length - 1
           ? winner < 0
