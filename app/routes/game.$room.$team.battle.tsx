@@ -44,7 +44,7 @@ export default function Battle() {
         {log[turn].map(($, i) =>
           $ ? (
             <div key={i} className="flex flex-col gap-1">
-              {padSlice($.toReversed(), formationLength(round)).map(($1, j) =>
+              {padSlice($, formationLength(round)).map(($1, j) =>
                 $1 == null ? (
                   <div className="border-solid h-24" />
                 ) : (
