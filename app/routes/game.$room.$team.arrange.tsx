@@ -20,7 +20,7 @@ export default function Arrange() {
       <p>
         Click to add or remove to your battle formation. Death is permanent.
       </p>
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-8">
         <div className="flex flex-col gap-1">
           <button
             onClick={() =>
@@ -33,7 +33,7 @@ export default function Arrange() {
             Finalize
           </button>
         </div>
-        <div className="grid grid-cols-3 gap-2 w-fit">
+        <div className="grid grid-cols-2 gap-2 w-fit">
           {creatures.map(
             ($, i) =>
               !formation.includes(i) && (
@@ -50,10 +50,10 @@ export default function Arrange() {
               )
           )}
         </div>
-        <div className="flex flex-row gap-2 h-20">
+        <div className="flex flex-col gap-2 min-w-40">
           {padSlice(formation, formationLength(round)).map(($i, i) =>
             $i == null ? (
-              <div key={i} className="border-solid w-20" />
+              <div key={i} className="border-solid h-24" />
             ) : (
               <Creature
                 key={i}

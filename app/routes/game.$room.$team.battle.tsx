@@ -43,13 +43,10 @@ export default function Battle() {
         </div>
         {log[turn].map(($, i) =>
           $ ? (
-            <div key={i} className="flex flex-row gap-1">
-              {(i
-                ? padSlice($, formationLength(round))
-                : padSlice($, formationLength(round)).toReversed()
-              ).map(($1, j) =>
+            <div key={i} className="flex flex-col gap-1">
+              {padSlice($.toReversed(), formationLength(round)).map(($1, j) =>
                 $1 == null ? (
-                  <div className="border-solid w-20" />
+                  <div className="border-solid h-24" />
                 ) : (
                   <Creature
                     key={j}

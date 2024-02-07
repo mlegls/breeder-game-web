@@ -1,6 +1,8 @@
 import _ from "lodash";
+import { uniqueName } from "~/utils/display";
 
 export interface ICreature {
+  name: string;
   id: string;
   hp: number;
   atk: number;
@@ -10,6 +12,7 @@ export interface ICreature {
 }
 
 export const genCreature = (stats?: Partial<ICreature>): ICreature => ({
+  name: uniqueName(),
   id: _.uniqueId(),
   hp: _.random(1, 10),
   atk: _.random(1, 10),
@@ -32,6 +35,7 @@ export const crossGene = (a: number, b: number): number =>
   );
 
 export const breed = (a: ICreature, b: ICreature): ICreature => ({
+  name: uniqueName(),
   id: _.uniqueId(),
   hp: crossGene(a.hp, b.hp),
   atk: crossGene(a.atk, b.atk),

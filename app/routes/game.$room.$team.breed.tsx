@@ -49,7 +49,7 @@ export default function Breed() {
         Select pairs to breed. Each trait has a 50% chance to be inherited from
         each parent, with ±20% variance.
       </p>
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row gap-8">
         <div className="flex flex-col gap-1">
           <button onClick={breed}>Breed Selected</button>
           <button
