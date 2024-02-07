@@ -29,6 +29,7 @@ export default function Index() {
 
 export type IBattleLog = {
   tag: "battle";
+  round: string;
   log: [ICreature[], ICreature[]][];
   winner: number;
 };

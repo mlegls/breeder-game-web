@@ -149,7 +149,6 @@ export async function action({ request, params }: ActionFunctionArgs) {
   await redis.hset(room, {
     [`t${team}`]: [...creatures, ...children],
     [`p${team}Bred`]: true,
-    [`p${team}Ready`]: false,
     log: [...log, { data: { pairs, children }, tag: `p${team}breed` }],
   });
   return redirect(`../arrange`);
