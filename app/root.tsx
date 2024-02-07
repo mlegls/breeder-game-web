@@ -10,15 +10,15 @@ import {
 import type { LinksFunction } from "@remix-run/node"; // or cloudflare/deno
 import styles from "./tailwind.css";
 
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles },
-];
+export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
-export const meta: MetaFunction = () => [{
-  charset: "utf-8",
-  title: "Breeder Game",
-  viewport: "width=device-width,initial-scale=1",
-}];
+export const meta: MetaFunction = () => [
+  {
+    title: "Breeder Game",
+  },
+  { charSet: "utf-8" },
+  { name: "viewport", content: "width=device-width, initial-scale=1.0" },
+];
 
 export default function App() {
   return (

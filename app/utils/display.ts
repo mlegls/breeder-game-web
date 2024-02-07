@@ -1,5 +1,5 @@
 import _ from "lodash";
-import emojis from "./emojis";
+import emojis from "./data-ordered-emoji.json";
 import {
   uniqueNamesGenerator,
   adjectives,
